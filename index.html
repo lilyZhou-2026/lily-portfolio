@@ -219,9 +219,27 @@
 
     <footer class="footer">
       <div class="container footer__inner">
-        <p>© 2026 Lily Zhou</p>
+        <div class="footer__left">
+          <p>© 2026 Lily Zhou</p>
+          <p class="footer__note">本站为个人作品集，案例内容已脱敏，仅用于招聘评估 · <button type="button" class="footer__notice-link" id="notice-open">网站说明</button></p>
+        </div>
         <a class="footer__top" href="#top">Back to top ↑</a>
       </div>
     </footer>
+
+    <!-- 网站说明浮层 -->
+    <div class="notice-modal is-hidden" id="notice-modal" role="dialog" aria-modal="true" aria-labelledby="notice-title">
+      <div class="notice-modal__panel">
+        <button type="button" class="notice-modal__close" id="notice-close" aria-label="关闭">×</button>
+        <h2 id="notice-title">网站说明</h2>
+        <ol>
+          <li>本站为周春丽的个人作品集，用于展示职业经历与项目复盘，供招聘评估参考，不代表相关企业的官方立场。</li>
+          <li>案例为团队协作成果，个人参与范围以各案例说明为准；相关品牌、产品及第三方素材的权利归原权利人所有。</li>
+          <li>案例数据已做脱敏与模糊化处理，仅用于体现工作方法与成果量级，不构成任何商业承诺或准确性保证。</li>
+          <li>本站内容仅限招聘评估范围内使用，请勿用于商业提案、二次发布或其他用途；如需转发、引用或核实项目经历，请先与本人联系。</li>
+          <li>如对内容或素材使用有疑问，欢迎通过邮箱联系：<a href="mailto:zhouchunli2019@126.com">zhouchunli2019@126.com</a>。</li>
+        </ol>
+      </div>
+    </div>
   </body>
 </html>

@@ -146,19 +146,23 @@ if (!reduceMotion) {
   }
 }
 
-/* ---------- 微信卡：点击复制微信号 ---------- */
-const wechatCard = document.getElementById('wechat-card');
-if (wechatCard) {
-  wechatCard.addEventListener('click', async () => {
-    const label = wechatCard.querySelector('.info__label');
-    try {
-      await navigator.clipboard.writeText(wechatCard.dataset.copy);
-      label.textContent = '已复制 ✓';
-    } catch {
-      label.textContent = '微信号：' + wechatCard.dataset.copy;
-    }
-    setTimeout(() => {
-      label.textContent = 'WeChat 微信';
-    }, 1600);
+/* ---------- 网站说明浮层 ---------- */
+const noticeModal = document.getElementById('notice-modal');
+if (noticeModal) {
+  const openNotice = () => {
+    noticeModal.classList.remove('is-hidden');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeNotice = () => {
+    noticeModal.classList.add('is-hidden');
+    document.body.style.overflow = '';
+  };
+  document.getElementById('notice-open').addEventListener('click', openNotice);
+  document.getElementById('notice-close').addEventListener('click', closeNotice);
+  noticeModal.addEventListener('click', (e) => {
+    if (e.target === noticeModal) closeNotice();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !noticeModal.classList.contains('is-hidden')) closeNotice();
   });
 }
