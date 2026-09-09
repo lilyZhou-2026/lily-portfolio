@@ -74,7 +74,6 @@ if (GALLERY && root) {
   const tabsBox = root.querySelector('.explorer__tabs');
   const stage = root.querySelector('.explorer__stage');
   const nameEl = root.querySelector('.explorer__name');
-  const countEl = root.querySelector('.explorer__count');
   const thumbsBox = root.querySelector('.explorer__thumbs');
   const linkBox = root.querySelector('.explorer__linkbox');
   const hintEl = root.querySelector('.explorer__hint');
@@ -150,8 +149,6 @@ if (GALLERY && root) {
     stage.appendChild(view);
 
     nameEl.textContent = item.name;
-    countEl.textContent =
-      group.items.length > 1 ? `${state.index + 1} / ${group.items.length}` : '';
 
     // 多素材时显示切换箭头
     const multi = group.items.length > 1;
@@ -244,7 +241,8 @@ if (GALLERY && root) {
     const tab = document.createElement('button');
     tab.className = `explorer__tab${key === state.type ? ' is-active' : ''}`;
     tab.type = 'button';
-    tab.textContent = `${group.label} · ${group.items.length}`;
+    // 类型标签：不显示素材数量，避免暗示「仅此 N 个素材」
+    tab.textContent = group.label;
     tab.addEventListener('click', () => {
       if (state.type === key) return;
       state.type = key;
